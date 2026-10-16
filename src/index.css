@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --void: #0A0706;
+  --void-dark: #06040A;
+  --gold: #E3A94E;
+  --gold-hi: #F7D98C;
+  --amber: #B0702A;
+  --cyan: #84D2DE;
+  --ivory: #F4ECDD;
+  --muted: #B4A891;
+  --line: rgba(244, 236, 221, 0.16);
+  --line-2: rgba(227, 169, 78, 0.55);
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Jost", "Segoe UI", sans-serif;
+  --expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+body {
+  background-color: var(--void);
+  color: var(--ivory);
+  font-family: var(--sans);
+  font-weight: 300;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #06040A;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(227, 169, 78, 0.28);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(227, 169, 78, 0.6);
+}
+
+/* Gold Gradient Heading */
+.gold-text-gradient {
+  background: linear-gradient(174deg, #FBF3E2 8%, #F7D98C 38%, #E3A94E 62%, #F2E2BC 88%, #D79A45 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 4px 34px rgba(120, 80, 20, 0.35));
+}
+
+/* Luxury buttons */
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 2.2rem;
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  border: 1px solid var(--gold);
+  color: var(--void);
+  background: var(--gold);
+  transition: all 0.4s var(--expo);
+}
+.btn-gold:hover {
+  background: var(--gold-hi);
+  border-color: var(--gold-hi);
+  box-shadow: 0 0 24px rgba(227, 169, 78, 0.35);
+  transform: translateY(-1px);
+}
+.btn-gold:active {
+  transform: translateY(1px);
+}
+
+.tlink-gold {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ivory);
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--line-2);
+  transition: color 0.4s, border-color 0.4s;
+}
+.tlink-gold:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+/* Scroll hint animation */
+@keyframes dropHairline {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  55% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+  56% {
+    transform-origin: bottom;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+.animate-drop-hairline {
+  animation: dropHairline 2.2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+/* Floating animation for hovered bottle */
+@keyframes bottleFloat {
+  0%, 100% {
+    transform: translateY(-9%) scale(1.22);
+  }
+  50% {
+    transform: translateY(-12%) scale(1.22);
+  }
+}
+.animate-bottle-float {
+  animation: bottleFloat 3.2s ease-in-out infinite;
+}
+
+/* Glassmorphism nav */
+.nav-pill {
+  background: rgba(18, 12, 7, 0.55);
+  backdrop-filter: blur(16px) saturate(1.4);
+  -webkit-backdrop-filter: blur(16px) saturate(1.4);
+  border: 1px solid rgba(244, 236, 221, 0.18);
+  box-shadow: 0 10px 44px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
